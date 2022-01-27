@@ -45,10 +45,7 @@ header {
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
 }
-/*.active{
-  background-color: #000;
-  color: red;
-}*/
+
 .card h2 {
   font-size: 22px;
   font-weight: 600;
