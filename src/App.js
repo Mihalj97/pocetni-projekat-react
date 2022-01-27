@@ -1,6 +1,7 @@
 import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList"
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, NavLink } from "react-router-dom";
+import Card from "./components/shared/Card";
 import { useState } from "react";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
@@ -14,9 +15,9 @@ function App() {
 
     const deleteFeedback = (id) => {
         if (window.confirm('Are you sure you want to delete?')) {
-            setFeedback(feedback.filter((item)=> item.id !== id))
+            setFeedback(feedback.filter((item) => item.id !== id))
         }
-        
+
     }
 
     const addFeedback = (newFeedback) => {
@@ -28,20 +29,32 @@ function App() {
         <Router>
             <Header />
             <div className='container'>
-            <Routes>
+                <Routes>
                     <Route exact
                         path='/'
                         element={
-                        <>
-                            <FeedbackFrom handleAdd={addFeedback} />
-                            <FeedbackStats feedback={feedback} />
-                            <FeedbackList feedback={feedback} handleDelete={deleteFeedback} /> 
-                        </>
-             }></Route>
+                            <>
+                                <FeedbackFrom handleAdd={addFeedback} />
+                                <FeedbackStats feedback={feedback} />
+                                <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+                            </>
+                        }></Route>
                     <Route path='/about' element={<AboutPage />} />
                 </Routes>
+
+                <Card>
+
+                    <NavLink to='/' activeClassName='active'>
+                        Home
+                    </NavLink>
+
+                    <NavLink to='/about' activeClassName='active' >
+                        About
+                    </NavLink>
+                </Card>
+
                 <AboutIconLink />
-        </div>
+            </div>
         </Router>
     )
 }
