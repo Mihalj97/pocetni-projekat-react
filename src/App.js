@@ -36,8 +36,8 @@ function App() {
                         element={
                             <>
                                 <FeedbackFrom handleAdd={addFeedback} />
-                                <FeedbackStats feedback={feedback} />
-                                <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+                                <FeedbackStats />
+                                <FeedbackList handleDelete={deleteFeedback} />
                             </>
                         }></Route>
                     <Route path='/about' element={<AboutPage />} />
